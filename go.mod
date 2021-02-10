@@ -1,4 +1,4 @@
-module github.com/libdns/duckdns
+module github.com/x186k/sfu1net-libdns
 
 go 1.14
 
