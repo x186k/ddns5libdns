@@ -1,4 +1,4 @@
-package duckdns
+package sfu1net
 
 import (
 	"context"
