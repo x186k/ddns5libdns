@@ -1,4 +1,4 @@
-module github.com/x186k/sfu1net
+module github.com/x186k/ddns5libdns
 
 go 1.14
 

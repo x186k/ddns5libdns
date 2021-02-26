@@ -1,4 +1,4 @@
-package sfu1net
+package ddns5libdns
 
 import (
 	"context"
