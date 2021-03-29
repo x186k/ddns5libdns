@@ -141,7 +141,7 @@ func (p *Provider) doRequest(ctx context.Context, domain string, params map[stri
 func getMainDomain(domain string) string {
 	domain = strings.TrimSuffix(domain, ".")
 	split := dns.Split(domain)
-	if strings.HasSuffix(strings.ToLower(domain), "duckdns.org") {
+	if strings.HasSuffix(strings.ToLower(domain), "ddns5.com") {
 		if len(split) < 3 {
 			return ""
 		}
