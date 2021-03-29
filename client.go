@@ -81,7 +81,7 @@ func (p *Provider) setRecord(ctx context.Context, zone string, record libdns.Rec
 }
 
 func (p *Provider) doRequest(ctx context.Context, domain string, params map[string]string) ([]string, error) {
-	u, _ := url.Parse("https://ddns5.com/update")
+	u, _ := url.Parse("https://api.ddns5.com/update")
 
 	// extract the main domain
 	var mainDomain string
