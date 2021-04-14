@@ -29,6 +29,8 @@ func (p *Provider) GetRecords(ctx context.Context, zone string) ([]libdns.Record
 func (p *Provider) AppendRecords(ctx context.Context, zone string, records []libdns.Record) ([]libdns.Record, error) {
 	var appendedRecords []libdns.Record
 
+	//println("--AppendRecords",zone,records[0].Name)
+
 	for _, rec := range records {
 		err := p.setRecord(ctx, zone, rec, false)
 		if err != nil {
@@ -58,6 +60,7 @@ func (p *Provider) DeleteRecords(ctx context.Context, zone string, records []lib
 // SetRecords sets the records in the zone, either by updating existing records or creating new ones, and returns the recordsthat were updated.
 func (p *Provider) SetRecords(ctx context.Context, zone string, records []libdns.Record) ([]libdns.Record, error) {
 	var setRecords []libdns.Record
+	//println("--SetRecords",zone,records[0].Name)
 
 	for _, rec := range records {
 		err := p.setRecord(ctx, zone, rec, false)
