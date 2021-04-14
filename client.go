@@ -88,7 +88,14 @@ func (p *Provider) doRequest(ctx context.Context, domain string, params map[stri
 	if p.OverrideDomain != "" {
 		mainDomain = p.OverrideDomain
 	} else {
-		mainDomain = getMainDomain(domain)
+		// before, would strip everything before 'b': a.b.c.d
+		// old mainDomain = getMainDomain(domain)		// Strip off stuff 
+		//println("77 --doRequest orig domain",domain)
+		//println("77 --doRequest maindomain",mainDomain)
+		
+		mainDomain = strings.TrimSuffix(domain, ".")		// no longer strip stuff from front
+
+		//println("77 --doRequest newmaindomain",mainDomain)
 	}
 
 	if len(mainDomain) == 0 {
