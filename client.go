@@ -135,7 +135,7 @@ func (p *Provider) doRequest(ctx context.Context, domain string, params map[stri
 	body := string(bodyBytes)
 	bodyParts := strings.Split(body, "\n")
 	if bodyParts[0] != "OK" {
-		return nil, fmt.Errorf("DuckDNS request failed, expected (OK) but got (%s), url: [%s], body: %s", bodyParts[0], u, body)
+		return nil, fmt.Errorf("ddns5.com request failed, expected (OK) but got (%s), url: [%s], body: %s", bodyParts[0], u, body)
 	}
 
 	return bodyParts, nil
