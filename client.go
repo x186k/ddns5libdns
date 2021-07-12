@@ -89,11 +89,11 @@ func (p *Provider) doRequest(ctx context.Context, domain string, params map[stri
 		mainDomain = p.OverrideDomain
 	} else {
 		// before, would strip everything before 'b': a.b.c.d
-		// old mainDomain = getMainDomain(domain)		// Strip off stuff 
+		// old mainDomain = getMainDomain(domain)		// Strip off stuff
 		//println("77 --doRequest orig domain",domain)
 		//println("77 --doRequest maindomain",mainDomain)
-		
-		mainDomain = strings.TrimSuffix(domain, ".")		// no longer strip stuff from front
+
+		mainDomain = strings.TrimSuffix(domain, ".") // no longer strip stuff from front
 
 		//println("77 --doRequest newmaindomain",mainDomain)
 	}
@@ -101,6 +101,22 @@ func (p *Provider) doRequest(ctx context.Context, domain string, params map[stri
 	if len(mainDomain) == 0 {
 		return nil, fmt.Errorf("unable to find the main domain for: %s", domain)
 	}
+
+
+	// ON HOLD
+	// if params["ip"] != "" && params["ipv6"] != "" {
+	// 	return nil, fmt.Errorf("cannot accept both 'ip' and 'ipv6' at the same time")
+	// }
+	// WORK ON choosing tcp4 or tcp6 for Http requests
+	// since ddns5 uses IP address for authentication
+	//
+	//	var zz :=if params["ip"] != ""
+	//*http.Client
+	// transport := http.DefaultTransport.(*http.Transport)
+	// dialer := transport.DialContext
+	// transport.DialContext = func(ctx context.Context, network, addr string) (net.Conn, error) {
+	// 	return dialer(ctx, "tcp4", addr)
+	// }
 
 	// set up the query with the params we always set
 	query := u.Query()
